@@ -30,3 +30,7 @@
 *.exe
 *.out
 *.app
+
+pdf
+.idea
+.DS_Store
