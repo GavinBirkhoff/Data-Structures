@@ -31,6 +31,6 @@ int main() {
     PrintNRecursion(1000000);
     stop = clock();
     duration = ((double) (stop - start)) / CLOCKS_PER_SEC;
-    printf("花费%f ms",duration);
+    printf("花费%f s",duration);
     return 0;
 }
