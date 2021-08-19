@@ -11,3 +11,8 @@ add_executable(MaxSubseqSum 基本概念/c&c++/MaxSubseqSum.cpp)
 add_executable(MaximumSubsequenceSum "基本概念/c&c++/MaximumSubsequenceSum.cpp")
 
 add_executable(BinarySearch 基本概念/c&c++/二分查找.cpp)
+
+add_executable(LinearList 线性结构/线性表及实现/链表存储的线性表.c)
+add_executable(LinearListByArr 线性结构/线性表及实现/数组存储的线性表.c)
+add_executable(stack 线性结构/堆栈/栈的链表存储实现.c)
+add_executable(stackList 线性结构/堆栈/栈的顺序存储实现.c)
