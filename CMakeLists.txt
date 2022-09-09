@@ -5,7 +5,7 @@ set(CMAKE_C_STANDARD 11)
 
 add_executable(PrintN 基本概念/PrintN.c)
 add_executable(time-clock 基本概念/多项式计时.c)
-add_executable(MaxSubseqSum 基本概念/MaxSubseqSum.cpp)
+add_executable(MaxSubseqSum 基本概念/最大子列和问题.cpp)
 
 add_executable(MaximumSubsequenceSum "基本概念/MaximumSubsequenceSum.cpp")
 
