@@ -19,8 +19,8 @@ void PrintN(int N) {
 
 void PrintNRecursion(int N) {
     if (N) {
-        PrintN(N - 1);
         printf("%d\n", N);
+        PrintNRecursion(N - 1);
     }
     return;
 }
