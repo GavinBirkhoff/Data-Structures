@@ -1,48 +1,48 @@
-type NodeDate = number
-
+type ElementType = number
+type BinTree = TreeNode | null
 interface TreeNode {
-    data: NodeDate
-    left?: TreeNode
-    right?: TreeNode
+    data: ElementType
+    left: BinTree
+    right: BinTree
 }
 
 // 插入一个节点
-function insert(data: NodeDate): TreeNode{
+function insert(data: ElementType): TreeNode{
     const bt = {
         data,
-        left: undefined,
-        right: undefined
+        left: null,
+        right: null
     }
     return bt
 }
 
 // 初始化一个二叉树
-function createBinTree(): TreeNode {
+function createBinTree(): BinTree {
     const bt: TreeNode = {
         data: 1,
         left: insert(2),
         right: insert(3)
     }
-    bt.left!.left = insert(4)
-    bt.left!.right = insert(5)
-    bt.right!.left = insert(6)
-    bt.right!.right = insert(7)
+    bt!.left!.left = insert(4)
+    bt!.left!.right = insert(5)
+    bt!.right!.left = insert(6)
+    bt!.right!.right = insert(7)
     return bt
 }
 
-const BT: TreeNode = createBinTree()
+const BT: BinTree = createBinTree()
 
 // 先序递归遍历
-function preOrderTraversal(bt?: TreeNode){
+function preOrderTraversal(bt: BinTree){
     if (!bt) return
     console.log(bt.data)
     preOrderTraversal(bt.left)
     preOrderTraversal(bt.right)
 }
 // 先序非递归遍历
-function preOrderNotTraversal(bt?: TreeNode){
+function preOrderNotTraversal(bt: BinTree){
     if (!bt) return
-    let pointer: TreeNode | undefined = bt
+    let pointer: BinTree = bt
     const stack: TreeNode[] = []
     while (pointer || stack.length > 0 ) {
         while (pointer){
@@ -58,7 +58,7 @@ function preOrderNotTraversal(bt?: TreeNode){
 }
 
 // 中序递归遍历
-function inOrderTraversal(bt?: TreeNode){
+function inOrderTraversal(bt: BinTree){
     if (!bt) return
     inOrderTraversal(bt.left)
     console.log(bt.data)
@@ -66,9 +66,9 @@ function inOrderTraversal(bt?: TreeNode){
 }
 
 // 中序非递归遍历
-function inOrderNotTraversal(bt?: TreeNode){
+function inOrderNotTraversal(bt: BinTree){
     if (!bt) return
-    let pointer: TreeNode | undefined = bt
+    let pointer: BinTree = bt
     const stack: TreeNode[] = []
     while ( pointer || stack.length > 0){
         while (pointer){
@@ -84,7 +84,7 @@ function inOrderNotTraversal(bt?: TreeNode){
 }
 
 // 后序递归遍历
-function postOrderTraversal(bt?: TreeNode){
+function postOrderTraversal(bt: BinTree){
     if (!bt) return
     postOrderTraversal(bt.left)
     postOrderTraversal(bt.right)
@@ -92,9 +92,8 @@ function postOrderTraversal(bt?: TreeNode){
 }
 
 // 后序非递归遍历
-function postOrderNotTraversal(bt?: TreeNode){
+function postOrderNotTraversal(bt: BinTree){
     if (!bt) return
-    let pointer:TreeNode
     const stack: TreeNode[] = []
     const list: TreeNode[] = []
     stack.push(bt)
@@ -112,7 +111,7 @@ function postOrderNotTraversal(bt?: TreeNode){
 }
 
 // 层次遍历
-function levelOrderTraversal(bt?: TreeNode) {
+function levelOrderTraversal(bt: BinTree) {
     if (!bt) return
     const queue: TreeNode[] = []
     queue.push(bt)
@@ -129,7 +128,7 @@ function levelOrderTraversal(bt?: TreeNode) {
 }
 
 // 获取叶子节点
-function findLeaves(bt?: TreeNode){
+function findLeaves(bt: BinTree){
     if (!bt) return
     findLeaves(bt.left)
     findLeaves(bt.right)
@@ -139,7 +138,7 @@ function findLeaves(bt?: TreeNode){
 }
 
 // 求树的高度
-function getHeight(bt?: TreeNode):number{
+function getHeight(bt: BinTree):number{
     if (!bt) return 0
     const lH = getHeight(bt.left)
     const rH = getHeight(bt.right)
